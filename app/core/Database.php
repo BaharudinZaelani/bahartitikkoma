@@ -27,18 +27,26 @@ class Database{
 
 	public function bind($param, $value, $type = null){
 		if ( is_null($type) ) {
-			if ( is_int($type) ) {
-				$type = PDO::PARAM_INT;
-			}else if ( is_bool($type) ) {
-				$type = PDO::PARAM_BOOL;
-			}else if ( is_null($type) ) {
-				$type = PDO::PARAM_NULL;
-			}else {
-				$type = PDO::PARAM_STRING;
-			}
+			switch ( true ) {
+				case is_null($value) :
+					$type = PDO::PARAM_NULL;
+					break;
 
-			$this->stmt->bindValue($param, $value, $type);
+				case is_int($value) :
+					$type = PDO::PARAM_INT;
+					break;
+
+				case is_bool($value) :
+					$type = PDO::PARAM_BOOL;
+					break;
+
+				default : 
+					$type = PDO::PARAM_STR;
+			}
 		}
+		$this->stmt->bindValue($param, $value, $type);
+		// var_dump($this->stmt);
+
 	}
 
 	public function execute(){
@@ -47,12 +55,13 @@ class Database{
 
 	public function resultAll(){
 		$this->execute();
+		// var_dump($this->execute);
 		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function result(){
 		$this->execute();
-		$this->stmt->fetch(PDO::FETCH_ASSOC);
+		return $this->stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
 }
