@@ -1,6 +1,8 @@
 # bahartitikkoma
 hasil pembelajaran dari dosen indonesia "Shandika Galih" __bapak dosen kita semua__
-> Simpel Framework from bahar :3
+
+**Git Clone**
+> git clone https://github.com/BaharudinZaelani/bahartitikkoma.git
 
 ## struktur file
 - File config.php
