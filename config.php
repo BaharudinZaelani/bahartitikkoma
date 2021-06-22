@@ -1,6 +1,6 @@
 <?php 
 // BASE_URL
-define('URL', 'http://localhost/baharWeb/Sistem%20Informasi%20Tugas%20Siswa/public/');
+define('URL', 'http://localhost/baharTitikKoma/');
 
 // Database Config
 define('HOST', 'localhost');

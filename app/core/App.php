@@ -4,12 +4,12 @@
 class App {
 	Protected $controller = 'home';
 	Protected $method = 'index';
-	Protected $paramas = [];
+	Protected $params = [];
 
 	public function __construct(){
 		$url = $this->parseUrl();
 		if ( isset($url) ) {
-			if ( file_exists('../app/controllers/' . $url[0] . '.php') ) {
+			if ( file_exists( URL . 'app/controllers/' . $url[0] . '.php') ) {
 				$this->controller = $url[0];
 				unset($url[0]);
 			}
@@ -22,14 +22,16 @@ class App {
 			}
 		}
 
+		// var_dump($url);
+
 		require '../app/controllers/' . $this->controller . '.php';
 		$this->controller = new $this->controller;
 		
 		if ( !empty($url) ) {
-			$this->paramas = array_values($url);
+			$this->params = array_values($url);
 		}
 
-		call_user_func_array([$this->controller, $this->method], $this->paramas);
+		call_user_func_array([$this->controller, $this->method], $this->params);
 		
 	}
 
