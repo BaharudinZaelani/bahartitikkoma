@@ -1,5 +1,5 @@
 # bahartitikkoma
-hasil pembelajaran dari dosen indonesia "Shandika Galih" __bapak dosen kita emua__
+hasil pembelajaran dari dosen indonesia "Shandika Galih" __bapak dosen kita semua__
 > Simpel Framework from bahar :3
 
 ## struktur file
